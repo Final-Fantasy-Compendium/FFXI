@@ -2,294 +2,1371 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<title>FFXI Walkthrough</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FFXI — Walkthrough</title>
 <style>
-:root{
-  --bg:#0b1020; --panel:#101a33; --panel2:#0f1730; --text:#eaf0ff; --muted:#a9b6d6; --link:#67b7ff; --border:rgba(255,255,255,.15);
-  --radius:12px;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
-a{color:var(--link);text-decoration:none}
-a:hover{text-decoration:underline}
-header{position:sticky;top:0;background:rgba(11,16,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
-header .wrap{max-width:1200px;margin:auto;padding:14px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
-.brand{font-weight:700}
-.search{flex:1;max-width:560px}
-.search input{
-  width:100%;padding:10px 12px;border-radius:999px;border:1px solid var(--border);
-  background:var(--panel2);color:var(--text);outline:none
-}
-main{max-width:1200px;margin:auto;display:grid;grid-template-columns:360px 1fr;gap:14px;padding:14px 16px}
-nav{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:10px;overflow:auto;max-height:calc(100vh - 90px)}
-.content{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;min-height:calc(100vh - 90px)}
-h1{margin:0 0 8px;font-size:20px}
-.sub{margin:0 0 14px;color:var(--muted);font-size:13px}
-.pill{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--muted);margin-left:8px}
-.group{margin:8px 0;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
-.group > button{
-  width:100%;text-align:left;background:transparent;color:var(--text);border:0;
-  padding:12px 12px;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer
-}
-.group > button:hover{background:rgba(255,255,255,.05)}
-.panel{display:none;padding:6px 10px 10px}
+body{margin:0;font-family:system-ui,Arial,sans-serif;background:#0b1020;color:#eaf0ff}
+nav{width:360px;float:left;height:100vh;overflow:auto;background:#101a33;padding:12px}
+main{margin-left:360px;padding:16px}
+.group{margin-bottom:8px}
+.group button{width:100%;background:none;color:#eaf0ff;border:0;text-align:left;font-weight:700;padding:8px;cursor:pointer}
+.panel{display:none;padding-left:10px}
 .panel.open{display:block}
-.item{padding:6px 8px;border-radius:10px}
-.item:hover{background:rgba(255,255,255,.05)}
-.item a{display:block}
-.small{color:var(--muted);font-size:12px;margin-top:2px}
-.breadcrumb{color:var(--muted);font-size:12px;margin:0 0 10px}
-hr{border:0;border-top:1px solid rgba(255,255,255,.12);margin:14px 0}
-kbd{border:1px solid rgba(255,255,255,.18);border-bottom-color:rgba(255,255,255,.28);padding:2px 6px;border-radius:6px;color:var(--muted);font-size:12px}
-@media (max-width: 980px){
-  main{grid-template-columns:1fr}
-  nav{max-height:none}
-  .content{min-height:auto}
-}
+.item a{color:#67b7ff;text-decoration:none;display:block;padding:4px 0}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <div class="brand">FFXI Walkthrough <span class="pill">Spoiler-light</span></div>
-    <div class="search">
-      <input id="search" type="search" placeholder="Search pages (e.g., “Subjob”, “San d'Oria 2-3”, “Rhapsodies 1-4”) — press / to focus">
-    </div>
-    <div class="small"><span class="pill">v0.1</span></div>
-  </div>
-</header>
-
+<nav id="nav"></nav>
 <main>
-  <nav id="nav"></nav>
-
-  <section class="content" id="content" aria-live="polite">
-    <div class="breadcrumb" id="crumb">Home</div>
-    <h1>Welcome</h1>
-    <p class="sub">Use the left menu to drill down: <strong>Tab → Subtab → Mission page</strong>. This structure is built for FFXI’s parallel progression.</p>
-    <hr>
-    <p><strong>Tip:</strong> press <kbd>/</kbd> to search. Pages load instantly without leaving the menu.</p>
-  </section>
+<h1>FFXI Walkthrough</h1>
+<p>All mission titles are labeled and ready for content.</p>
 </main>
 
 <script>
 const NAV = [
   {
-    title: "Start Here",
-    children: [
-      { title: "New Player Path (2025)", children: [
-        { title: "0) Quick Setup Checklist", path: "pages/start/new-player-setup.html", note: "Accounts, config, UI, keybinds, trusts." },
-        { title: "1) First Hour Route", path: "pages/start/first-hour.html", note: "Do this before you wander." }
-      ]},
-      { title: "Returning Player Path", children: [
-        { title: "Catch-up Checklist", path: "pages/start/returning-catchup.html", note: "Trusts, RoV, fast travel, priorities." }
-      ]},
-      { title: "What Do I Do Next?", children: [
-        { title: "Decision Guide", path: "pages/start/what-next.html", note: "Pick the next best unlock." }
-      ]}
+    "title": "Start Here",
+    "children": [
+      {
+        "title": "New Player (2026)",
+        "children": [
+          {
+            "title": "Quick Setup Checklist",
+            "path": "pages/start/new-player-setup.html",
+            "note": ""
+          },
+          {
+            "title": "First Hour Route",
+            "path": "pages/start/first-hour.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Returning Player",
+        "children": [
+          {
+            "title": "Catch-up Checklist",
+            "path": "pages/start/returning-catchup.html",
+            "note": ""
+          },
+          {
+            "title": "What Do I Do Next?",
+            "path": "pages/start/what-next.html",
+            "note": ""
+          }
+        ]
+      }
     ]
   },
   {
-    title: "Story & Missions",
-    children: [
-      { title: "Nation Missions", children: [
-        { title: "San d'Oria", children: [
-          { title: "1-1: First Steps", path: "pages/missions/sandoria/1-1.html", note: "Starter mission template." },
-          { title: "1-2: (Placeholder)", path: "pages/missions/sandoria/1-2.html", note: "Add real steps later." }
-        ]},
-        { title: "Bastok", children: [
-          { title: "1-1: (Placeholder)", path: "pages/missions/bastok/1-1.html", note: "" }
-        ]},
-        { title: "Windurst", children: [
-          { title: "1-1: (Placeholder)", path: "pages/missions/windurst/1-1.html", note: "" }
-        ]}
-      ]},
-      { title: "Expansions", children: [
-        { title: "Rise of the Zilart", children: [
-          { title: "Zilart 1: (Placeholder)", path: "pages/missions/zilart/1.html", note: "" }
-        ]},
-        { title: "Chains of Promathia", children: [
-          { title: "CoP 1-1: (Placeholder)", path: "pages/missions/cop/1-1.html", note: "" }
-        ]},
-        { title: "Treasures of Aht Urhgan", children: [
-          { title: "ToAU 1: (Placeholder)", path: "pages/missions/toau/1.html", note: "" }
-        ]},
-        { title: "Wings of the Goddess", children: [
-          { title: "WotG 1: (Placeholder)", path: "pages/missions/wotg/1.html", note: "" }
-        ]},
-        { title: "Seekers of Adoulin", children: [
-          { title: "SoA 1: (Placeholder)", path: "pages/missions/soa/1.html", note: "" }
-        ]}
-      ]},
-      { title: "Rhapsodies of Vana'diel", children: [
-        { title: "RoV 1-1: (Placeholder)", path: "pages/missions/rov/1-1.html", note: "" }
-      ]}
-    ]
-  },
-  {
-    title: "Gameplay Systems",
-    children: [
-      { title: "Jobs & Subjobs", children: [
-        { title: "Subjob Unlock", path: "pages/systems/subjob-unlock.html", note: "Required. Fast route." },
-        { title: "Job Quickstarts", path: "pages/systems/job-quickstarts.html", note: "What to play & why." }
-      ]},
-      { title: "Trusts", children: [
-        { title: "Trust 101", path: "pages/systems/trusts-101.html", note: "Core system for modern FFXI." }
-      ]},
-      { title: "Fast Travel", children: [
-        { title: "Home Points / Survival Guides", path: "pages/systems/fast-travel.html", note: "Unlock route." }
-      ]}
-    ]
-  },
-  {
-    title: "Endgame",
-    children: [
-      { title: "Ambuscade", children: [
-        { title: "Ambuscade Basics", path: "pages/endgame/ambuscade.html", note: "" }
-      ]},
-      { title: "Odyssey", children: [
-        { title: "Odyssey Basics", path: "pages/endgame/odyssey.html", note: "" }
-      ]}
-    ]
-  },
-  {
-    title: "Reference / Tools",
-    children: [
-      { title: "Glossary", path: "pages/ref/glossary.html", note: "" },
-      { title: "Key Items Tracker", path: "pages/ref/key-items.html", note: "" }
+    "title": "Story & Missions",
+    "children": [
+      {
+        "title": "Nation Missions",
+        "children": [
+          {
+            "title": "San d'Oria",
+            "children": [
+              {
+                "title": "Sandoria Mission 1-1",
+                "path": "pages/missions/sandoria/1-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 1-2",
+                "path": "pages/missions/sandoria/1-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 1-3",
+                "path": "pages/missions/sandoria/1-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 2-1",
+                "path": "pages/missions/sandoria/2-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 2-2",
+                "path": "pages/missions/sandoria/2-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 2-3",
+                "path": "pages/missions/sandoria/2-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 3-1",
+                "path": "pages/missions/sandoria/3-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 3-2",
+                "path": "pages/missions/sandoria/3-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 3-3",
+                "path": "pages/missions/sandoria/3-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 4-1",
+                "path": "pages/missions/sandoria/4-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 4-2",
+                "path": "pages/missions/sandoria/4-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 4-3",
+                "path": "pages/missions/sandoria/4-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 5-1",
+                "path": "pages/missions/sandoria/5-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 5-2",
+                "path": "pages/missions/sandoria/5-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 5-3",
+                "path": "pages/missions/sandoria/5-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 6-1",
+                "path": "pages/missions/sandoria/6-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 6-2",
+                "path": "pages/missions/sandoria/6-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 6-3",
+                "path": "pages/missions/sandoria/6-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 7-1",
+                "path": "pages/missions/sandoria/7-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 7-2",
+                "path": "pages/missions/sandoria/7-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 7-3",
+                "path": "pages/missions/sandoria/7-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 8-1",
+                "path": "pages/missions/sandoria/8-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 8-2",
+                "path": "pages/missions/sandoria/8-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 8-3",
+                "path": "pages/missions/sandoria/8-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 9-1",
+                "path": "pages/missions/sandoria/9-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 9-2",
+                "path": "pages/missions/sandoria/9-2.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 9-3",
+                "path": "pages/missions/sandoria/9-3.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 10-1",
+                "path": "pages/missions/sandoria/10-1.html",
+                "note": ""
+              },
+              {
+                "title": "Sandoria Mission 10-2",
+                "path": "pages/missions/sandoria/10-2.html",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "title": "Bastok",
+            "children": [
+              {
+                "title": "Bastok Mission 1-1",
+                "path": "pages/missions/bastok/1-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 1-2",
+                "path": "pages/missions/bastok/1-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 1-3",
+                "path": "pages/missions/bastok/1-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 2-1",
+                "path": "pages/missions/bastok/2-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 2-2",
+                "path": "pages/missions/bastok/2-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 2-3",
+                "path": "pages/missions/bastok/2-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 3-1",
+                "path": "pages/missions/bastok/3-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 3-2",
+                "path": "pages/missions/bastok/3-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 3-3",
+                "path": "pages/missions/bastok/3-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 4-1",
+                "path": "pages/missions/bastok/4-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 4-2",
+                "path": "pages/missions/bastok/4-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 4-3",
+                "path": "pages/missions/bastok/4-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 5-1",
+                "path": "pages/missions/bastok/5-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 5-2",
+                "path": "pages/missions/bastok/5-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 5-3",
+                "path": "pages/missions/bastok/5-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 6-1",
+                "path": "pages/missions/bastok/6-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 6-2",
+                "path": "pages/missions/bastok/6-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 6-3",
+                "path": "pages/missions/bastok/6-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 7-1",
+                "path": "pages/missions/bastok/7-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 7-2",
+                "path": "pages/missions/bastok/7-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 7-3",
+                "path": "pages/missions/bastok/7-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 8-1",
+                "path": "pages/missions/bastok/8-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 8-2",
+                "path": "pages/missions/bastok/8-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 8-3",
+                "path": "pages/missions/bastok/8-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 9-1",
+                "path": "pages/missions/bastok/9-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 9-2",
+                "path": "pages/missions/bastok/9-2.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 9-3",
+                "path": "pages/missions/bastok/9-3.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 10-1",
+                "path": "pages/missions/bastok/10-1.html",
+                "note": ""
+              },
+              {
+                "title": "Bastok Mission 10-2",
+                "path": "pages/missions/bastok/10-2.html",
+                "note": ""
+              }
+            ]
+          },
+          {
+            "title": "Windurst",
+            "children": [
+              {
+                "title": "Windurst Mission 1-1",
+                "path": "pages/missions/windurst/1-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 1-2",
+                "path": "pages/missions/windurst/1-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 1-3",
+                "path": "pages/missions/windurst/1-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 2-1",
+                "path": "pages/missions/windurst/2-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 2-2",
+                "path": "pages/missions/windurst/2-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 2-3",
+                "path": "pages/missions/windurst/2-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 3-1",
+                "path": "pages/missions/windurst/3-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 3-2",
+                "path": "pages/missions/windurst/3-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 3-3",
+                "path": "pages/missions/windurst/3-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 4-1",
+                "path": "pages/missions/windurst/4-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 4-2",
+                "path": "pages/missions/windurst/4-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 4-3",
+                "path": "pages/missions/windurst/4-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 5-1",
+                "path": "pages/missions/windurst/5-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 5-2",
+                "path": "pages/missions/windurst/5-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 5-3",
+                "path": "pages/missions/windurst/5-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 6-1",
+                "path": "pages/missions/windurst/6-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 6-2",
+                "path": "pages/missions/windurst/6-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 6-3",
+                "path": "pages/missions/windurst/6-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 7-1",
+                "path": "pages/missions/windurst/7-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 7-2",
+                "path": "pages/missions/windurst/7-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 7-3",
+                "path": "pages/missions/windurst/7-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 8-1",
+                "path": "pages/missions/windurst/8-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 8-2",
+                "path": "pages/missions/windurst/8-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 8-3",
+                "path": "pages/missions/windurst/8-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 9-1",
+                "path": "pages/missions/windurst/9-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 9-2",
+                "path": "pages/missions/windurst/9-2.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 9-3",
+                "path": "pages/missions/windurst/9-3.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 10-1",
+                "path": "pages/missions/windurst/10-1.html",
+                "note": ""
+              },
+              {
+                "title": "Windurst Mission 10-2",
+                "path": "pages/missions/windurst/10-2.html",
+                "note": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Rise of the Zilart",
+        "children": [
+          {
+            "title": "Zilart Mission 1",
+            "path": "pages/missions/zilart/1.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 2",
+            "path": "pages/missions/zilart/2.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 3",
+            "path": "pages/missions/zilart/3.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 4",
+            "path": "pages/missions/zilart/4.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 5",
+            "path": "pages/missions/zilart/5.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 6",
+            "path": "pages/missions/zilart/6.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 7",
+            "path": "pages/missions/zilart/7.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 8",
+            "path": "pages/missions/zilart/8.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 9",
+            "path": "pages/missions/zilart/9.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 10",
+            "path": "pages/missions/zilart/10.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 11",
+            "path": "pages/missions/zilart/11.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 12",
+            "path": "pages/missions/zilart/12.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 13",
+            "path": "pages/missions/zilart/13.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 14",
+            "path": "pages/missions/zilart/14.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 15",
+            "path": "pages/missions/zilart/15.html",
+            "note": ""
+          },
+          {
+            "title": "Zilart Mission 16",
+            "path": "pages/missions/zilart/16.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Chains of Promathia",
+        "children": [
+          {
+            "title": "CoP 1-1",
+            "path": "pages/missions/cop/1-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 1-2",
+            "path": "pages/missions/cop/1-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 1-3",
+            "path": "pages/missions/cop/1-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 2-1",
+            "path": "pages/missions/cop/2-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 2-2",
+            "path": "pages/missions/cop/2-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 2-3",
+            "path": "pages/missions/cop/2-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 2-4",
+            "path": "pages/missions/cop/2-4.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 2-5",
+            "path": "pages/missions/cop/2-5.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 3-1",
+            "path": "pages/missions/cop/3-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 3-2",
+            "path": "pages/missions/cop/3-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 3-3",
+            "path": "pages/missions/cop/3-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 3-4",
+            "path": "pages/missions/cop/3-4.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 3-5",
+            "path": "pages/missions/cop/3-5.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 4-1",
+            "path": "pages/missions/cop/4-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 4-2",
+            "path": "pages/missions/cop/4-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 4-3",
+            "path": "pages/missions/cop/4-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 4-4",
+            "path": "pages/missions/cop/4-4.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 5-1",
+            "path": "pages/missions/cop/5-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 5-2",
+            "path": "pages/missions/cop/5-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 5-3",
+            "path": "pages/missions/cop/5-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 5-4",
+            "path": "pages/missions/cop/5-4.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 5-5",
+            "path": "pages/missions/cop/5-5.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 6-1",
+            "path": "pages/missions/cop/6-1.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 6-2",
+            "path": "pages/missions/cop/6-2.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 6-3",
+            "path": "pages/missions/cop/6-3.html",
+            "note": ""
+          },
+          {
+            "title": "CoP 6-4",
+            "path": "pages/missions/cop/6-4.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Treasures of Aht Urhgan",
+        "children": [
+          {
+            "title": "ToAU Mission 1",
+            "path": "pages/missions/toau/1.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 2",
+            "path": "pages/missions/toau/2.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 3",
+            "path": "pages/missions/toau/3.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 4",
+            "path": "pages/missions/toau/4.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 5",
+            "path": "pages/missions/toau/5.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 6",
+            "path": "pages/missions/toau/6.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 7",
+            "path": "pages/missions/toau/7.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 8",
+            "path": "pages/missions/toau/8.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 9",
+            "path": "pages/missions/toau/9.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 10",
+            "path": "pages/missions/toau/10.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 11",
+            "path": "pages/missions/toau/11.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 12",
+            "path": "pages/missions/toau/12.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 13",
+            "path": "pages/missions/toau/13.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 14",
+            "path": "pages/missions/toau/14.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 15",
+            "path": "pages/missions/toau/15.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 16",
+            "path": "pages/missions/toau/16.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 17",
+            "path": "pages/missions/toau/17.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 18",
+            "path": "pages/missions/toau/18.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 19",
+            "path": "pages/missions/toau/19.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 20",
+            "path": "pages/missions/toau/20.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 21",
+            "path": "pages/missions/toau/21.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 22",
+            "path": "pages/missions/toau/22.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 23",
+            "path": "pages/missions/toau/23.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 24",
+            "path": "pages/missions/toau/24.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 25",
+            "path": "pages/missions/toau/25.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 26",
+            "path": "pages/missions/toau/26.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 27",
+            "path": "pages/missions/toau/27.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 28",
+            "path": "pages/missions/toau/28.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 29",
+            "path": "pages/missions/toau/29.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 30",
+            "path": "pages/missions/toau/30.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 31",
+            "path": "pages/missions/toau/31.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 32",
+            "path": "pages/missions/toau/32.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 33",
+            "path": "pages/missions/toau/33.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 34",
+            "path": "pages/missions/toau/34.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 35",
+            "path": "pages/missions/toau/35.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 36",
+            "path": "pages/missions/toau/36.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 37",
+            "path": "pages/missions/toau/37.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 38",
+            "path": "pages/missions/toau/38.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 39",
+            "path": "pages/missions/toau/39.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 40",
+            "path": "pages/missions/toau/40.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 41",
+            "path": "pages/missions/toau/41.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 42",
+            "path": "pages/missions/toau/42.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 43",
+            "path": "pages/missions/toau/43.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 44",
+            "path": "pages/missions/toau/44.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 45",
+            "path": "pages/missions/toau/45.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 46",
+            "path": "pages/missions/toau/46.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 47",
+            "path": "pages/missions/toau/47.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 48",
+            "path": "pages/missions/toau/48.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 49",
+            "path": "pages/missions/toau/49.html",
+            "note": ""
+          },
+          {
+            "title": "ToAU Mission 50",
+            "path": "pages/missions/toau/50.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Wings of the Goddess",
+        "children": [
+          {
+            "title": "WotG Mission 1",
+            "path": "pages/missions/wotg/1.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 2",
+            "path": "pages/missions/wotg/2.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 3",
+            "path": "pages/missions/wotg/3.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 4",
+            "path": "pages/missions/wotg/4.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 5",
+            "path": "pages/missions/wotg/5.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 6",
+            "path": "pages/missions/wotg/6.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 7",
+            "path": "pages/missions/wotg/7.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 8",
+            "path": "pages/missions/wotg/8.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 9",
+            "path": "pages/missions/wotg/9.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 10",
+            "path": "pages/missions/wotg/10.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 11",
+            "path": "pages/missions/wotg/11.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 12",
+            "path": "pages/missions/wotg/12.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 13",
+            "path": "pages/missions/wotg/13.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 14",
+            "path": "pages/missions/wotg/14.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 15",
+            "path": "pages/missions/wotg/15.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 16",
+            "path": "pages/missions/wotg/16.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 17",
+            "path": "pages/missions/wotg/17.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 18",
+            "path": "pages/missions/wotg/18.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 19",
+            "path": "pages/missions/wotg/19.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 20",
+            "path": "pages/missions/wotg/20.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 21",
+            "path": "pages/missions/wotg/21.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 22",
+            "path": "pages/missions/wotg/22.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 23",
+            "path": "pages/missions/wotg/23.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 24",
+            "path": "pages/missions/wotg/24.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 25",
+            "path": "pages/missions/wotg/25.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 26",
+            "path": "pages/missions/wotg/26.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 27",
+            "path": "pages/missions/wotg/27.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 28",
+            "path": "pages/missions/wotg/28.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 29",
+            "path": "pages/missions/wotg/29.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 30",
+            "path": "pages/missions/wotg/30.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 31",
+            "path": "pages/missions/wotg/31.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 32",
+            "path": "pages/missions/wotg/32.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 33",
+            "path": "pages/missions/wotg/33.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 34",
+            "path": "pages/missions/wotg/34.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 35",
+            "path": "pages/missions/wotg/35.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 36",
+            "path": "pages/missions/wotg/36.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 37",
+            "path": "pages/missions/wotg/37.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 38",
+            "path": "pages/missions/wotg/38.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 39",
+            "path": "pages/missions/wotg/39.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 40",
+            "path": "pages/missions/wotg/40.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 41",
+            "path": "pages/missions/wotg/41.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 42",
+            "path": "pages/missions/wotg/42.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 43",
+            "path": "pages/missions/wotg/43.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 44",
+            "path": "pages/missions/wotg/44.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 45",
+            "path": "pages/missions/wotg/45.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 46",
+            "path": "pages/missions/wotg/46.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 47",
+            "path": "pages/missions/wotg/47.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 48",
+            "path": "pages/missions/wotg/48.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 49",
+            "path": "pages/missions/wotg/49.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 50",
+            "path": "pages/missions/wotg/50.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 51",
+            "path": "pages/missions/wotg/51.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 52",
+            "path": "pages/missions/wotg/52.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 53",
+            "path": "pages/missions/wotg/53.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 54",
+            "path": "pages/missions/wotg/54.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 55",
+            "path": "pages/missions/wotg/55.html",
+            "note": ""
+          },
+          {
+            "title": "WotG Mission 56",
+            "path": "pages/missions/wotg/56.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Seekers of Adoulin",
+        "children": [
+          {
+            "title": "SoA Mission 1",
+            "path": "pages/missions/soa/1.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 2",
+            "path": "pages/missions/soa/2.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 3",
+            "path": "pages/missions/soa/3.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 4",
+            "path": "pages/missions/soa/4.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 5",
+            "path": "pages/missions/soa/5.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 6",
+            "path": "pages/missions/soa/6.html",
+            "note": ""
+          },
+          {
+            "title": "SoA Mission 7",
+            "path": "pages/missions/soa/7.html",
+            "note": ""
+          }
+        ]
+      },
+      {
+        "title": "Rhapsodies of Vana'diel",
+        "children": [
+          {
+            "title": "RoV Mission 1",
+            "path": "pages/missions/rov/1.html",
+            "note": ""
+          },
+          {
+            "title": "RoV Mission 2",
+            "path": "pages/missions/rov/2.html",
+            "note": ""
+          },
+          {
+            "title": "RoV Mission 3",
+            "path": "pages/missions/rov/3.html",
+            "note": ""
+          }
+        ]
+      }
     ]
   }
 ];
 
-const navEl = document.getElementById("nav");
-const contentEl = document.getElementById("content");
-const crumbEl = document.getElementById("crumb");
-const searchEl = document.getElementById("search");
-
-function escapeHtml(s){return (s||"").replace(/[&<>"']/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));}
-
-function buildNavTree(nodes, pathStack=[]){
-  const container = document.createElement("div");
-
-  nodes.forEach(node=>{
-    if(node.children){
-      const group = document.createElement("div");
-      group.className = "group";
-
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.innerHTML = `<span>${escapeHtml(node.title)}</span><span aria-hidden="true">▾</span>`;
-      btn.addEventListener("click", ()=>panel.classList.toggle("open"));
-
-      const panel = document.createElement("div");
-      panel.className = "panel";
-
-      panel.appendChild(buildNavTree(node.children, pathStack.concat(node.title)));
-
-      group.appendChild(btn);
-      group.appendChild(panel);
-      container.appendChild(group);
-    } else if(node.path){
-      const item = document.createElement("div");
-      item.className = "item";
-      const link = document.createElement("a");
-      link.href = "#";
-      link.innerHTML = `<div>${escapeHtml(node.title)}</div>${node.note ? `<div class="small">${escapeHtml(node.note)}</div>` : ""}`;
-      link.addEventListener("click", (e)=>{
-        e.preventDefault();
-        loadPage(node.path, pathStack.concat(node.title));
-      });
-      item.appendChild(link);
-      container.appendChild(item);
-    }
-  });
-
-  return container;
-}
-
-function flatten(nodes, pathStack=[]){
-  const out = [];
-  nodes.forEach(n=>{
+function build(nodes, parent){
+  nodes.forEach(n => {
     if(n.children){
-      out.push(...flatten(n.children, pathStack.concat(n.title)));
-    } else if(n.path){
-      out.push({title:n.title, note:n.note||"", path:n.path, crumb:pathStack.concat(n.title)});
+      const g = document.createElement("div");
+      g.className = "group";
+      const b = document.createElement("button");
+      b.textContent = n.title;
+      const p = document.createElement("div");
+      p.className = "panel";
+      b.onclick = () => p.classList.toggle("open");
+      g.appendChild(b);
+      g.appendChild(p);
+      parent.appendChild(g);
+      build(n.children, p);
+    } else {
+      const d = document.createElement("div");
+      d.className = "item";
+      d.innerHTML = `<a href="#">${n.title}</a>`;
+      parent.appendChild(d);
     }
   });
-  return out;
 }
 
-const FLAT = flatten(NAV);
-
-function renderNav(filterText=""){
-  navEl.innerHTML = "";
-  if(!filterText){
-    navEl.appendChild(buildNavTree(NAV));
-    navEl.querySelectorAll(".panel").forEach((p,i)=>{ if(i<2) p.classList.add("open"); });
-    return;
-  }
-  const q = filterText.toLowerCase().trim();
-  const matches = FLAT.filter(p =>
-    (p.title + " " + p.note + " " + p.crumb.join(" ")).toLowerCase().includes(q)
-  ).slice(0, 60);
-
-  const wrap = document.createElement("div");
-  const header = document.createElement("div");
-  header.className = "muted";
-  header.style.margin = "6px 4px 10px";
-  header.textContent = matches.length ? `Search results (${matches.length})` : "No results.";
-  wrap.appendChild(header);
-
-  matches.forEach(m=>{
-    const item = document.createElement("div");
-    item.className = "item";
-    const link = document.createElement("a");
-    link.href = "#";
-    link.innerHTML = `<div>${escapeHtml(m.title)}</div><div class="small">${escapeHtml(m.crumb.join(" → "))}</div>`;
-    link.addEventListener("click",(e)=>{
-      e.preventDefault();
-      loadPage(m.path, m.crumb);
-      searchEl.value = "";
-      renderNav("");
-    });
-    item.appendChild(link);
-    wrap.appendChild(item);
-  });
-
-  navEl.appendChild(wrap);
-}
-
-async function loadPage(path, crumb){
-  try{
-    const res = await fetch(path, {cache:"no-cache"});
-    if(!res.ok) throw new Error(res.status + " " + res.statusText);
-    const html = await res.text();
-    contentEl.innerHTML = html;
-    crumbEl.textContent = crumb.join(" → ");
-    if(!contentEl.querySelector("#crumb")){
-      const topCrumb = document.createElement("div");
-      topCrumb.className = "breadcrumb";
-      topCrumb.id = "crumb";
-      topCrumb.textContent = crumb.join(" → ");
-      contentEl.prepend(topCrumb);
-    }
-    window.scrollTo({top:0, behavior:"instant"});
-  }catch(err){
-    contentEl.innerHTML = `<div class="breadcrumb" id="crumb">${escapeHtml(crumb.join(" → "))}</div>
-      <h1>Page not found</h1>
-      <p class="sub">Couldn’t load <code>${escapeHtml(path)}</code>. Make sure the file exists at that path.</p>`;
-  }
-}
-
-renderNav();
-
-searchEl.addEventListener("input", ()=>renderNav(searchEl.value));
-window.addEventListener("keydown",(e)=>{
-  if(e.key==="/" && document.activeElement !== searchEl){
-    e.preventDefault(); searchEl.focus();
-  }
-});
+build(NAV, document.getElementById("nav"));
 </script>
+
 </body>
 </html>
