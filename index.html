@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FFXI — Walkthrough</title>
+<style>
+:root{
+  --bg:#0b1020; --panel:#101a33; --panel2:#0f1730; --text:#eaf0ff; --muted:#a9b6d6; --link:#67b7ff; --border:rgba(255,255,255,.15);
+  --radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;background:rgba(11,16,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10}
+header .wrap{max-width:1200px;margin:auto;padding:14px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.brand{font-weight:700}
+.search{flex:1;max-width:560px}
+.search input{
+  width:100%;padding:10px 12px;border-radius:999px;border:1px solid var(--border);
+  background:var(--panel2);color:var(--text);outline:none
+}
+main{max-width:1200px;margin:auto;display:grid;grid-template-columns:360px 1fr;gap:14px;padding:14px 16px}
+nav{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:10px;overflow:auto;max-height:calc(100vh - 90px)}
+.content{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;min-height:calc(100vh - 90px)}
+h1{margin:0 0 8px;font-size:20px}
+.sub{margin:0 0 14px;color:var(--muted);font-size:13px}
+.pill{display:inline-block;font-size:12px;padding:4px 8px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--muted);margin-left:8px}
+.group{margin:8px 0;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.group > button{
+  width:100%;text-align:left;background:transparent;color:var(--text);border:0;
+  padding:12px 12px;font-weight:700;display:flex;justify-content:space-between;align-items:center;cursor:pointer
+}
+.group > button:hover{background:rgba(255,255,255,.05)}
+.panel{display:none;padding:6px 10px 10px}
+.panel.open{display:block}
+.item{padding:6px 8px;border-radius:10px}
+.item:hover{background:rgba(255,255,255,.05)}
+.item a{display:block}
+.small{color:var(--muted);font-size:12px;margin-top:2px}
+.breadcrumb{color:var(--muted);font-size:12px;margin:0 0 10px}
+hr{border:0;border-top:1px solid rgba(255,255,255,.12);margin:14px 0}
+kbd{border:1px solid rgba(255,255,255,.18);border-bottom-color:rgba(255,255,255,.28);padding:2px 6px;border-radius:6px;color:var(--muted);font-size:12px}
+@media (max-width: 980px){
+  main{grid-template-columns:1fr}
+  nav{max-height:none}
+  .content{min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">FFXI Walkthrough <span class="pill">Spoiler-light</span></div>
+    <div class="search">
+      <input id="search" type="search" placeholder="Search pages (e.g., “Subjob”, “San d'Oria 2-3”, “Rhapsodies 1-4”) — press / to focus">
+    </div>
+    <div class="small"><span class="pill">v0.1</span></div>
+  </div>
+</header>
+
+<main>
+  <nav id="nav"></nav>
+
+  <section class="content" id="content" aria-live="polite">
+    <div class="breadcrumb" id="crumb">Home</div>
+    <h1>Welcome</h1>
+    <p class="sub">Use the left menu to drill down: <strong>Tab → Subtab → Mission page</strong>. This structure is built for FFXI’s parallel progression.</p>
+    <hr>
+    <p><strong>Tip:</strong> press <kbd>/</kbd> to search. Pages load instantly without leaving the menu.</p>
+  </section>
+</main>
+
+<script>
+const NAV = [
+  {
+    title: "Start Here",
+    children: [
+      { title: "New Player Path (2025)", children: [
+        { title: "0) Quick Setup Checklist", path: "pages/start/new-player-setup.html", note: "Accounts, config, UI, keybinds, trusts." },
+        { title: "1) First Hour Route", path: "pages/start/first-hour.html", note: "Do this before you wander." }
+      ]},
+      { title: "Returning Player Path", children: [
+        { title: "Catch-up Checklist", path: "pages/start/returning-catchup.html", note: "Trusts, RoV, fast travel, priorities." }
+      ]},
+      { title: "What Do I Do Next?", children: [
+        { title: "Decision Guide", path: "pages/start/what-next.html", note: "Pick the next best unlock." }
+      ]}
+    ]
+  },
+  {
+    title: "Story & Missions",
+    children: [
+      { title: "Nation Missions", children: [
+        { title: "San d'Oria", children: [
+          { title: "1-1: First Steps", path: "pages/missions/sandoria/1-1.html", note: "Starter mission template." },
+          { title: "1-2: (Placeholder)", path: "pages/missions/sandoria/1-2.html", note: "Add real steps later." }
+        ]},
+        { title: "Bastok", children: [
+          { title: "1-1: (Placeholder)", path: "pages/missions/bastok/1-1.html", note: "" }
+        ]},
+        { title: "Windurst", children: [
+          { title: "1-1: (Placeholder)", path: "pages/missions/windurst/1-1.html", note: "" }
+        ]}
+      ]},
+      { title: "Expansions", children: [
+        { title: "Rise of the Zilart", children: [
+          { title: "Zilart 1: (Placeholder)", path: "pages/missions/zilart/1.html", note: "" }
+        ]},
+        { title: "Chains of Promathia", children: [
+          { title: "CoP 1-1: (Placeholder)", path: "pages/missions/cop/1-1.html", note: "" }
+        ]},
+        { title: "Treasures of Aht Urhgan", children: [
+          { title: "ToAU 1: (Placeholder)", path: "pages/missions/toau/1.html", note: "" }
+        ]},
+        { title: "Wings of the Goddess", children: [
+          { title: "WotG 1: (Placeholder)", path: "pages/missions/wotg/1.html", note: "" }
+        ]},
+        { title: "Seekers of Adoulin", children: [
+          { title: "SoA 1: (Placeholder)", path: "pages/missions/soa/1.html", note: "" }
+        ]}
+      ]},
+      { title: "Rhapsodies of Vana'diel", children: [
+        { title: "RoV 1-1: (Placeholder)", path: "pages/missions/rov/1-1.html", note: "" }
+      ]}
+    ]
+  },
+  {
+    title: "Gameplay Systems",
+    children: [
+      { title: "Jobs & Subjobs", children: [
+        { title: "Subjob Unlock", path: "pages/systems/subjob-unlock.html", note: "Required. Fast route." },
+        { title: "Job Quickstarts", path: "pages/systems/job-quickstarts.html", note: "What to play & why." }
+      ]},
+      { title: "Trusts", children: [
+        { title: "Trust 101", path: "pages/systems/trusts-101.html", note: "Core system for modern FFXI." }
+      ]},
+      { title: "Fast Travel", children: [
+        { title: "Home Points / Survival Guides", path: "pages/systems/fast-travel.html", note: "Unlock route." }
+      ]}
+    ]
+  },
+  {
+    title: "Endgame",
+    children: [
+      { title: "Ambuscade", children: [
+        { title: "Ambuscade Basics", path: "pages/endgame/ambuscade.html", note: "" }
+      ]},
+      { title: "Odyssey", children: [
+        { title: "Odyssey Basics", path: "pages/endgame/odyssey.html", note: "" }
+      ]}
+    ]
+  },
+  {
+    title: "Reference / Tools",
+    children: [
+      { title: "Glossary", path: "pages/ref/glossary.html", note: "" },
+      { title: "Key Items Tracker", path: "pages/ref/key-items.html", note: "" }
+    ]
+  }
+];
+
+const navEl = document.getElementById("nav");
+const contentEl = document.getElementById("content");
+const crumbEl = document.getElementById("crumb");
+const searchEl = document.getElementById("search");
+
+function escapeHtml(s){return (s||"").replace(/[&<>"']/g, c=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));}
+
+function buildNavTree(nodes, pathStack=[]){
+  const container = document.createElement("div");
+
+  nodes.forEach(node=>{
+    if(node.children){
+      const group = document.createElement("div");
+      group.className = "group";
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.innerHTML = `<span>${escapeHtml(node.title)}</span><span aria-hidden="true">▾</span>`;
+      btn.addEventListener("click", ()=>panel.classList.toggle("open"));
+
+      const panel = document.createElement("div");
+      panel.className = "panel";
+
+      panel.appendChild(buildNavTree(node.children, pathStack.concat(node.title)));
+
+      group.appendChild(btn);
+      group.appendChild(panel);
+      container.appendChild(group);
+    } else if(node.path){
+      const item = document.createElement("div");
+      item.className = "item";
+      const link = document.createElement("a");
+      link.href = "#";
+      link.innerHTML = `<div>${escapeHtml(node.title)}</div>${node.note ? `<div class="small">${escapeHtml(node.note)}</div>` : ""}`;
+      link.addEventListener("click", (e)=>{
+        e.preventDefault();
+        loadPage(node.path, pathStack.concat(node.title));
+      });
+      item.appendChild(link);
+      container.appendChild(item);
+    }
+  });
+
+  return container;
+}
+
+function flatten(nodes, pathStack=[]){
+  const out = [];
+  nodes.forEach(n=>{
+    if(n.children){
+      out.push(...flatten(n.children, pathStack.concat(n.title)));
+    } else if(n.path){
+      out.push({title:n.title, note:n.note||"", path:n.path, crumb:pathStack.concat(n.title)});
+    }
+  });
+  return out;
+}
+
+const FLAT = flatten(NAV);
+
+function renderNav(filterText=""){
+  navEl.innerHTML = "";
+  if(!filterText){
+    navEl.appendChild(buildNavTree(NAV));
+    navEl.querySelectorAll(".panel").forEach((p,i)=>{ if(i<2) p.classList.add("open"); });
+    return;
+  }
+  const q = filterText.toLowerCase().trim();
+  const matches = FLAT.filter(p =>
+    (p.title + " " + p.note + " " + p.crumb.join(" ")).toLowerCase().includes(q)
+  ).slice(0, 60);
+
+  const wrap = document.createElement("div");
+  const header = document.createElement("div");
+  header.className = "muted";
+  header.style.margin = "6px 4px 10px";
+  header.textContent = matches.length ? `Search results (${matches.length})` : "No results.";
+  wrap.appendChild(header);
+
+  matches.forEach(m=>{
+    const item = document.createElement("div");
+    item.className = "item";
+    const link = document.createElement("a");
+    link.href = "#";
+    link.innerHTML = `<div>${escapeHtml(m.title)}</div><div class="small">${escapeHtml(m.crumb.join(" → "))}</div>`;
+    link.addEventListener("click",(e)=>{
+      e.preventDefault();
+      loadPage(m.path, m.crumb);
+      searchEl.value = "";
+      renderNav("");
+    });
+    item.appendChild(link);
+    wrap.appendChild(item);
+  });
+
+  navEl.appendChild(wrap);
+}
+
+async function loadPage(path, crumb){
+  try{
+    const res = await fetch(path, {cache:"no-cache"});
+    if(!res.ok) throw new Error(res.status + " " + res.statusText);
+    const html = await res.text();
+    contentEl.innerHTML = html;
+    crumbEl.textContent = crumb.join(" → ");
+    if(!contentEl.querySelector("#crumb")){
+      const topCrumb = document.createElement("div");
+      topCrumb.className = "breadcrumb";
+      topCrumb.id = "crumb";
+      topCrumb.textContent = crumb.join(" → ");
+      contentEl.prepend(topCrumb);
+    }
+    window.scrollTo({top:0, behavior:"instant"});
+  }catch(err){
+    contentEl.innerHTML = `<div class="breadcrumb" id="crumb">${escapeHtml(crumb.join(" → "))}</div>
+      <h1>Page not found</h1>
+      <p class="sub">Couldn’t load <code>${escapeHtml(path)}</code>. Make sure the file exists at that path.</p>`;
+  }
+}
+
+renderNav();
+
+searchEl.addEventListener("input", ()=>renderNav(searchEl.value));
+window.addEventListener("keydown",(e)=>{
+  if(e.key==="/" && document.activeElement !== searchEl){
+    e.preventDefault(); searchEl.focus();
+  }
+});
+</script>
+</body>
+</html>
